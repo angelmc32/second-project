@@ -63,12 +63,16 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Project 2 by Ernesto and Mel';
+app.locals.title = 'Proyecto Número 2';
 
 
 
 const index = require('./routes/index');
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 app.use('/', index);
+app.use('/', authRoutes);
+app.use('/', userRoutes);
 
 
 module.exports = app;

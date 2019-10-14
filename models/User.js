@@ -25,7 +25,7 @@ const userSchema = new Schema(
 
 // Plug in passport-local-mongoose to User schema
 userSchema.plugin(passportLocalMongoose, {
-  usernameQueryFields: ['email'], // Add email as an option for login
+  usernameQueryFields: ['username','email'], // Add email as an option for login
   hashField: 'password'           // Store the hashfield provided by passport-local-mongoose into password field in User Schema
 });
 
