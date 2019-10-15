@@ -13,27 +13,28 @@ html(lang="en")
       .uk-navbar-left
         ul.uk-navbar-nav
           li
-            a(href='#') Lemonet
+            a(href='/') Lemonet
           
       .uk-navbar-right
         ul.uk-navbar-nav
           li
-            a(href='/') Home
-          li
-            a(href='/publish') Publica
-            .uk-navbar-dropdown.uk-margin-remove
-              ul.uk-nav.uk-navbar-dropdown-nav
-                li
-                  a(href='/service/new') Servicio
-                li
-                  a(href='/article/new') Articulo
-                li
-                  a(href='/refuge/new') Refugio
+            a(href='/publish')
+                button.uk-button.uk-button-primary.uk-border-pill Publica
           li
             a(href='#') ¿Cómo funciona?
           li
-            a(href='/login')
-              button.uk-button.uk-button-primary.uk-border-pill Login
+            if user
+              a(href='/profile') #{user.username}
+              .uk-navbar-dropdown.uk-margin-remove
+                ul.uk-nav.uk-navbar-dropdown-nav
+                  li
+                    a(href='/service/new') Perfil
+                  li
+                    a(href='/profile/preferences') Preferencias
+                  li
+                    a(href='/logout') Cerrar sesión
+            else
+              a(href='/login') Entrar
 
     block content
 

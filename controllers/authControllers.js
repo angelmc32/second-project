@@ -10,7 +10,7 @@ exports.login = (req, res, next) => {
     req.login( user, error => {
       res.redirect('/home');
     });
-  });
+  })(req, res);
 }
 
 exports.signup = (req, res, next) => {

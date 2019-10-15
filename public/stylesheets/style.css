@@ -6,7 +6,7 @@ body {
 .uk-navbar-container.uk-navbar {
   background: #2B2E4A;
   color: #EEEEEE;
-  height: 12.5vh; }
+  height: 11.5vh; }
 
 .uk-navbar-left {
   background: #2B2E4A;
@@ -38,6 +38,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 87.5vh; }
+  height: 88.5vh; }
 
 /*# sourceMappingURL=style.css.map */
