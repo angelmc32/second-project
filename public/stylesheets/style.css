@@ -1,120 +1,95 @@
-$primary: #2B2E4A;
-$secondary: #E84545;
-$muted: #8D99AE;
-$background: #EDF2F4;
-$dark-text: #010218;
-$light-text: #EEEEEE;
-
 body {
   margin: 0;
   padding: 0;
-  background: #EDF2F4;
-}
+  background: #EDF2F4; }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $primary
-}
+  color: #2B2E4A; }
 
 .uk-navbar-container.uk-navbar {
-  background: $primary;
-  color: $light-text;
-  height: 12.5vh
-}
+  background: #2B2E4A;
+  color: #EEEEEE;
+  height: 12.5vh; }
 
-.uk-navbar-left  {
-  background: $primary;
-  color: $light-text
-}
+.uk-navbar-left {
+  background: #2B2E4A;
+  color: #EEEEEE; }
 
-.uk-navbar-right  {
-  background: $primary;
-  color: $light-text
-}
+.uk-navbar-right {
+  background: #2B2E4A;
+  color: #EEEEEE; }
 
 .uk-button.uk-button-primary {
-  background: $secondary; 
-}
+  background: #E84545; }
 
-.uk-navbar-container.uk-navbar li a{
-  color: $light-text
-}
+.uk-navbar-container.uk-navbar li a {
+  color: #EEEEEE; }
 
 .uk-nav.uk-navbar-dropdown-nav li a {
-  color: $dark-text
-}
+  color: #010218; }
 
 .uk-form-width-medium {
-  width: 300px
-}
+  width: 300px; }
 
 .uk-button.uk-button-secondary {
   width: 300px;
   height: 40px;
-  background: $secondary;
-}
+  background: #E84545; }
 
 .height-container-column {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 87.5vh;
-}
+  height: 87.5vh; }
 
 .height-container-column#landing-upload {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 87.5vh;
-}
+  height: 87.5vh; }
 
 .landing.uk-button.uk-button-default#emergency {
-  background: $background;
-  border: $secondary solid 2px;
-  color: $secondary;
-  font-size: 16px;
-}
+  background: #EDF2F4;
+  border: #E84545 solid 2px;
+  color: #E84545;
+  font-size: 16px; }
 
 .landing.uk-flex.uk-flex-center.uk-width-2-3 {
-  justify-content: space-evenly;
-}
+  justify-content: space-evenly; }
 
 .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-height-medium.uk-width-1-3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: $secondary;
+  background: #E84545;
   text-align: center;
-  border-radius: 10px;
-}
+  border-radius: 10px; }
 
 .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-height-medium.uk-width-1-3 a:link {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .uk-section.uk-section-primary.uk-light.uk-width-2-3#landing-problems {
   height: 55%;
-  background: $background;
-  color: $primary;
-}
+  background: #EDF2F4;
+  color: #2B2E4A; }
 
 .uk-section.uk-section-primary.uk-light.uk-width-2-3#landing-problems h3 {
-  color: $primary;
-}
+  color: #2B2E4A; }
 
 .uk-section.uk-section-primary.uk-light.uk-width-2-3#landing-how-it-works {
   height: 45%;
-  background: $background;
-}
+  background: #EDF2F4; }
 
 .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-height-medium.uk-width-1-4 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: $secondary;
+  background: #E84545;
   text-align: center;
-  border-radius: 10px;
-}
+  border-radius: 10px; }
+
+/*# sourceMappingURL=style.css.map */

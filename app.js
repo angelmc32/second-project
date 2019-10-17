@@ -13,7 +13,7 @@ const passport     = require('./helpers/passport');
 
 
 mongoose
-  .connect('mongodb://localhost/project-2', {useNewUrlParser: true})
+  .connect('mongodb://localhost/project-2', {useNewUrlParser: true, useUnifiedTopology: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -63,12 +63,16 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Project 2 by Ernesto and Mel';
+app.locals.title = 'Proyecto Número 2';
 
 
 
 const index = require('./routes/index');
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 app.use('/', index);
+app.use('/', authRoutes);
+app.use('/', userRoutes);
 
 
 module.exports = app;
