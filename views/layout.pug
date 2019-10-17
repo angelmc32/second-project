@@ -20,12 +20,28 @@ html(lang="en")
           li
             a(href='/') Home
           li
-            a(href='/publish') ¿Cómo funciona?
-          li
-            a(href='#')  Doctores
-          li
-            a(href='/login')
-              button.uk-button.uk-button-primary.uk-border-pill Login
+            a(href='#how-it-works') ¿Cómo funciona?
+          if user
+            li
+              a(href='/consultas')  Mis consultas
+          else
+            li
+              a(href='/doctores')  Doctores
+          if user
+            li
+              a(href='/perfil') #{user.username}
+              .uk-navbar-dropdown.uk-margin-remove
+                ul.uk-nav.uk-navbar-dropdown-nav
+                  li
+                    a(href='/perfil') Perfil
+                  li
+                    a(href='/perfil/preferencias') Preferencias
+                  li
+                    a(href='/logout') Cerrar sesión
+          else
+            li
+              a(href='/login')
+                button.uk-button.uk-button-primary.uk-border-pill Login
 
     block content
 
