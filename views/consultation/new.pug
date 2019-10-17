@@ -1,0 +1,89 @@
+extends ../layout
+
+block content
+
+  main
+
+    .height-container-column
+      h2 Nueva consulta
+      .uk-margin
+        form(action="/consultations/new" method="post" class="uk-form-stacked")
+          .uk-margin.uk-text-center
+            h4 Sube tu imagen:
+            .js-upload.uk-placeholder.uk-text-center
+              span(uk-icon='icon: cloud-upload')
+              span.uk-text-middle   Arrastra tu imagen a esta sección o 
+              div(uk-form-custom='')
+                input(type='file', multiple='')
+                span.uk-link selecciona una
+          .uk-margin.uk-text-center
+            h4 Indicanos el tipo de tu herida o lesion:
+          .uk-margin.uk-flex.uk-flex-center.uk-grid-small.uk-child-width-auto.uk-grid
+            label
+              input.uk-radio(type='radio', name='Cortada')
+              |  Cortada
+            label
+              input.uk-radio(type='radio', name='quemaQuemaduradura')
+              |  Quemadura
+            label
+              input.uk-radio(type='radio', name='Erupcion')
+              |  Erupcion
+            label
+              input.uk-radio(type='radio', name='Lunar')
+              |  Lunar
+            label
+              input.uk-radio(type='radio', name='Hongo', )
+              |  Hongo
+            label
+              input.uk-radio(type='radio', name='Desconocido', checked='')
+              |  Desconocido
+          .uk-margin.uk-text-center
+            h4 Indicanos tus sintomas:
+          .uk-margin.uk-flex.uk-flex-center.uk-grid-small.uk-child-width-auto.uk-grid
+            label
+              input.uk-checkbox(type='checkbox')
+              |  Ardor
+            label
+              input.uk-checkbox(type='checkbox')
+              |  Comezon
+            label
+              input.uk-checkbox(type='checkbox')
+              |  Dolor
+            label
+              input.uk-checkbox(type='checkbox')
+              |  Piel seca
+            label
+              input.uk-checkbox(type='checkbox')
+              |  Secreciones
+            label
+              input.uk-checkbox(type='checkbox')
+              |  Ampollas
+            label
+              input.uk-checkbox(type='checkbox')
+              |  Granos
+            label
+              input.uk-checkbox(type='checkbox')
+              |  Moreton
+            label
+              input.uk-checkbox(type='checkbox')
+              |  Sangrado
+            label
+              input.uk-checkbox(type='checkbox')
+              |  Inflamacion
+          .uk-margin.uk-text-center
+            h4 En caso de dolor, del 1 al 10, cual es el nivel:
+          .uk-margin.uk-align-center.uk-flex.uk-flex-center.uk-width-small
+            select.uk-select
+              option 1
+              option 2
+              option 3
+              option 4
+              option 5
+              option 6
+              option 7
+              option 8
+              option 9
+              option 10
+          .uk-margin.uk-flex.uk-flex-center
+            button(class="uk-button uk-button-secondary" type="submit") Solicitar consulta
+

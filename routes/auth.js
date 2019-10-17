@@ -18,7 +18,7 @@ router.post('/signup', restrictAuth, authControllers.signup);
 
 router.get('/logout', isAuth, (req, res, next) => {
   req.logout();
-  res.redirect('/login');
+  res.redirect('/');
 });
 
 module.exports = router;

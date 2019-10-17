@@ -23,12 +23,6 @@ html(lang="en")
             a(href='#how-it-works') ¿Cómo funciona?
           if user
             li
-              a(href='/consultas')  Mis consultas
-          else
-            li
-              a(href='/doctores')  Doctores
-          if user
-            li
               a(href='/perfil') #{user.username}
               .uk-navbar-dropdown.uk-margin-remove
                 ul.uk-nav.uk-navbar-dropdown-nav
@@ -38,6 +32,13 @@ html(lang="en")
                     a(href='/perfil/preferencias') Preferencias
                   li
                     a(href='/logout') Cerrar sesión
+          else
+            li
+              a(href='/doctores')  Doctores
+          if user
+            li
+              a(href='/consultations/new')
+                button.uk-button.uk-button-primary.uk-border-pill Quiero consulta
           else
             li
               a(href='/login')

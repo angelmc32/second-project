@@ -63,16 +63,18 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Proyecto Número 2';
+app.locals.title = 'Me Duele | Atencion a lesiones menores';
 
 
 
 const index = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+const consultationRoutes = require('./routes/consultation');
 app.use('/', index);
 app.use('/', authRoutes);
 app.use('/', userRoutes);
+app.use('/', consultationRoutes);
 
 
 module.exports = app;

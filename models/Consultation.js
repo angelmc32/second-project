@@ -21,8 +21,8 @@ const consultationSchema = new Schema(
       required: true
     },
     symptoms: {
-      type: String,
-      enum: ['Ardor','Comezon','Dolor','Piel seca','Secreciones','Ampollas','Granos','Moreton','Sangrado']
+      type: [String],
+      enum: ['Ardor','Comezon','Dolor','Piel seca','Secreciones','Ampollas','Granos','Moreton','Sangrado','Inflamacion']
     },
     pain_level: {
       type: Number,
@@ -35,4 +35,6 @@ const consultationSchema = new Schema(
       type: Date
     }
   }
-)
+);
+
+module.exports = model('Consultation', consultationSchema);

@@ -3,7 +3,11 @@ const router  = express.Router();
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  
+  const { user } = req;
+  
+  res.render('index', { title: 'Me duele | Atencion a lesiones menores', user });
+
 });
 
 module.exports = router;
