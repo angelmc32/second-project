@@ -33,8 +33,12 @@ const consultationSchema = new Schema(
     },
     start_date: {
       type: Date
+    },
+    diagnosis: {
+      type: String
     }
-  }
+  },
+  { timestamps: true }
 );
 
 module.exports = model('Consultation', consultationSchema);

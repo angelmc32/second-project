@@ -13,12 +13,15 @@ html(lang="en")
       .uk-navbar-left
         ul.uk-navbar-nav
           li
-            a(href='#') Me duele
+            a(href='/') Me duele
           
       .uk-navbar-right
         ul.uk-navbar-nav
           li
-            a(href='/') Home
+            if user
+              a(href='/home') Home
+            else
+              a(href='/') Home
           li
             a(href='#how-it-works') ¿Cómo funciona?
           if user
