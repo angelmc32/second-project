@@ -4,11 +4,55 @@ block content
 
   main
 
-    .height-container-column
+    .height-container-column#landing-upload
+      h1 Atención médica para lesiones leves:
       .landing.uk-flex.uk-flex-center.uk-width-2-3
-        .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-height-medium.uk-width-1-3
-          img(src="/images/landing/stitching.png", alt="")
-          h3 Herida o curacion
-        .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-margin-left.uk-height-medium.uk-width-1-3
-          img(src="/images/landing/dermatology.png", alt="")
-          h3 Dermatologia
+        .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-height-medium.uk-width-1-3.uk-card-hover
+          a(href="#modal-upload" uk-toggle="")
+            img(src="/images/landing/stitching.png", alt="")
+            h3 Herida o curacion
+        .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-margin-left.uk-height-medium.uk-width-1-3.uk-card-hover
+          a(href="#modal-upload" uk-toggle="target: #modal-upload")
+            img(src="/images/landing/dermatology.png", alt="")
+            h3 Dermatologia
+      a.landing.uk-button.uk-button-default.uk-border-pill#emergency(href='/emergency') Emergencia
+
+      #modal-upload(uk-modal='')
+        .uk-modal-dialog.uk-modal-body.uk-margin-auto-vertical
+          h2.uk-modal-title Sube tu imagen y obtén atención
+          p
+            | Para continuar con la atención será necesario iniciar sesión o registrarse
+          .js-upload.uk-placeholder.uk-text-center
+            span(uk-icon='icon: cloud-upload')
+            span.uk-text-middle   Arrastra tu imagen a esta sección o 
+            div(uk-form-custom='')
+              input(type='file', multiple='')
+              span.uk-link selecciona una
+          p.uk-text-right
+            button.uk-button.uk-button-default.uk-modal-close(type='button') Cancelar
+            button.uk-button.uk-button-primary(type='button') Subir imagen
+  
+    .height-container-column
+
+      .uk-section.uk-section-primary.uk-light.uk-width-2-3#landing-problems
+        .problem.uk-flex.uk-flex-left.uk-flex-middle.uk-flex-column
+          h3 Tienes una cortada o una erupcion, y a veces no sabes de donde salio
+          img(src="/images/landing/spots.png", alt="")
+          h3 No estas seguro si vale la pena ir al doctor o no
+          img(src="/images/landing/doctor.png", alt="")
+          h3 No quieres preguntarle a alguien cercano porque te da pena
+
+      .uk-section.uk-section-primary.uk-light.uk-width-2-3#landing-how-it-works
+        .landing.uk-flex.uk-flex-center
+          .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-height-medium.uk-width-1-4
+            img(src="/images/landing/upload.png", alt="")
+            h4 Sube tu imagen anonimamente
+          .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-margin-left.uk-height-medium.uk-width-1-4
+            img(src="/images/landing/compass.png", alt="")
+            h4 Recibe orientacion de un medico en linea
+          .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-margin-left.uk-height-medium.uk-width-1-4
+            img(src="/images/landing/timetable.png", alt="")
+            h4 Si requieres consulta, la puedes programar
+          .landing-card.uk-card.uk-card-secondary.uk-card-body.uk-margin-left.uk-height-medium.uk-width-1-4
+            img(src="/images/landing/telemedicine.png", alt="")
+            h4 Seguimiento en linea por parte de tu medico

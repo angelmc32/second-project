@@ -1,5 +1,6 @@
 $primary: #2B2E4A;
 $secondary: #E84545;
+$muted: #8D99AE;
 $background: #EDF2F4;
 $dark-text: #010218;
 $light-text: #EEEEEE;
@@ -8,6 +9,10 @@ body {
   margin: 0;
   padding: 0;
   background: #EDF2F4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $primary
 }
 
 .uk-navbar-container.uk-navbar {
@@ -56,6 +61,21 @@ body {
   height: 87.5vh;
 }
 
+.height-container-column#landing-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 87.5vh;
+}
+
+.landing.uk-button.uk-button-default#emergency {
+  background: $background;
+  border: $secondary solid 2px;
+  color: $secondary;
+  font-size: 16px;
+}
+
 .landing.uk-flex.uk-flex-center.uk-width-2-3 {
   justify-content: space-evenly;
 }
@@ -67,4 +87,34 @@ body {
   align-items: center;
   background: $secondary;
   text-align: center;
+  border-radius: 10px;
+}
+
+.landing-card.uk-card.uk-card-secondary.uk-card-body.uk-height-medium.uk-width-1-3 a:link {
+  text-decoration: none;
+}
+
+.uk-section.uk-section-primary.uk-light.uk-width-2-3#landing-problems {
+  height: 55%;
+  background: $background;
+  color: $primary;
+}
+
+.uk-section.uk-section-primary.uk-light.uk-width-2-3#landing-problems h3 {
+  color: $primary;
+}
+
+.uk-section.uk-section-primary.uk-light.uk-width-2-3#landing-how-it-works {
+  height: 45%;
+  background: $background;
+}
+
+.landing-card.uk-card.uk-card-secondary.uk-card-body.uk-height-medium.uk-width-1-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: $secondary;
+  text-align: center;
+  border-radius: 10px;
 }
