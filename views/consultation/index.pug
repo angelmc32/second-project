@@ -4,8 +4,9 @@ block content
 
   .height-container-column
 
-    h2 This is the view for all consultations
-
-    // each consultation in consultations
-
-    // TO DO
+    .uk-text-center(class='uk-child-width-expand@s', uk-grid='')
+      each consultation in consultations
+        .uk-card.uk-card-default.uk-card-body
+          img(src=`${consultation.image_url}`, alt="")
+          p #{consultation.chief_complaint}
+      
