@@ -2,11 +2,14 @@ extends ../layout
 
 block content
 
-  .height-container-column
+  main
 
-    .uk-text-center(class='uk-child-width-expand@s', uk-grid='')
-      each consultation in consultations
-        .uk-card.uk-card-default.uk-card-body
-          img(src=`${consultation.image_url}`, alt="")
-          p #{consultation.chief_complaint}
+    .uk-flex.uk-flex-center
+
+      .uk-text-center(class='uk-child-width-1-4' uk-grid='' uk-height-match="target: .uk-card")
+        each consultation in consultations
+          a(href=`/consultations/${consultation._id}`)
+            .uk-card.uk-card-default.uk-card-body.uk-card-hover
+              img(src=`${consultation.image_url}`, alt="")
+              p #{consultation.chief_complaint}
       
