@@ -9,9 +9,11 @@ exports.restrictAuth = (req, res, next) => {
     return res.redirect('/home');
   return next();
 }
-
-exports.isDoctor = (req, res, next) => {
-  if ( req.user.medic_license )
+/*
+exports.isProvider = (req, res, next) => {
+  const { user } = req;
+  if ( user.license )
     return true;
   return false;
 }
+*/

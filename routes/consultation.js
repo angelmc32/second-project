@@ -8,7 +8,7 @@ router.get('/consultations', isAuth, (req, res, next) => {
   
   const { user } = req;
   
-  Consultation.find()
+  Consultation.find({patient_id: user._id})
   .then( consultations => res.render('consultation/index', { title: 'Consultas | Atencion a lesiones menores', user, consultations }) )
   .catch( errorMessage => res.render('user/home', { title: 'Home', user, errorMessage }));
   
