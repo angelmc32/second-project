@@ -10,9 +10,9 @@ router.get('/login', restrictAuth, (req, res, next) => {
 
 router.post('/login', restrictAuth, authControllers.login);
 
-router.get('/signup', restrictAuth, (req, res, next) => {
-  res.render('auth/signup', { title: 'Registro' });
-});
+  router.get('/signup', restrictAuth, (req, res, next) => {
+    res.render('auth/signup', { title: 'Registro' });
+  });
 
 router.post('/signup', restrictAuth, authControllers.signup);
 
