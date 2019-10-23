@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+
+  main
+
+    .height-container-column
+
+      .profile-form-container
+
+        h2 Actualiza tu perfil
+        .uk-margin
+          form(action="/profile/edit" method="post" class="uk-form-stacked")
+            .uk-margin
+              label(class="uk-form-label uk-text-center" for="first-name-input") Nombre:
+              .uk-form-controls
+                input(class="uk-input uk-form-width-medium uk-align-center" id="first-name-input" type="text" placeholder="Introduce tu nombre" name="first_name")
+            .uk-margin
+              label(class="uk-form-label uk-text-center" for="last-name-input") Apellido:
+              .uk-form-controls
+                input(class="uk-input uk-form-width-medium uk-align-center" id="last-name-input" type="text" placeholder="Introduce tu apellido" name="last_name")
+            .uk-margin
+              label(class="uk-form-label uk-text-center" for="dob-input") Fecha de nacimiento:
+              .uk-form-controls
+                input(class="uk-input uk-form-width-medium uk-align-center" id="dob-input" type="date" name="date_of_birth")
+            .uk-margin
+              label(class="uk-form-label uk-text-center" for="last-name-input") Cedula Profesional:
+              .uk-form-controls
+                input(class="uk-input uk-form-width-medium uk-align-center" id="last-name-input" type="text" placeholder="Introduce tu cedula profesional" name="license")
+            .uk-margin
+              label(class="uk-form-label uk-text-center" for="email-input") Correo electrónico:
+              .uk-form-controls
+                input(class="uk-input uk-form-width-medium uk-align-center" id="email-input" type="email" placeholder="Introduce un correo electrónico" name="email")
+            .uk-margin
+              label(class="uk-form-label uk-text-center" for="password-input") Contraseña:
+              .uk-form-controls
+                input(class="uk-input uk-form-width-medium uk-align-center" id="password-input" type="password" placeholder="Introduce una contraseña" name="password")
+            .uk-margin
+              button(class="uk-button uk-button-secondary" type="submit") Actualizar perfil

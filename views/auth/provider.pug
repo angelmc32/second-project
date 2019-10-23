@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+
+  main
+  
+    .height-container-column
+      .uk-width-1-2.uk-flex.uk-flex-column.uk-text-center
+        .form-container#provider-form
+          .uk-margin
+            h2 Inicia Sesión
+            button.uk-button-default.uk-border-pill.provider-form-button(uk-toggle="target: #provider-form" type="button") Primera vez? Registrate
+          .uk-margin
+            form(action="/providers/login" method="post" class="uk-form-stacked")
+              .uk-margin
+                label(class="uk-form-label uk-text-center" for="email-input") Correo electrónico:
+                .uk-form-controls
+                  input(class="uk-input uk-form-width-medium uk-align-center" id="email-input" type="email" placeholder="Introduce un correo electrónico" name="email")
+              .uk-margin
+                label(class="uk-form-label uk-text-center" for="password-input") Contraseña:
+                .uk-form-controls
+                  input(class="uk-input uk-form-width-medium uk-align-center" id="password-input" type="password" placeholder="Introduce una contraseña" name="password")
+              .uk-margin
+                button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Iniciar sesión
+        .form-container#provider-form(hidden)
+          .uk-margin
+            h2 Registro
+            button.uk-button-default.uk-border-pill.provider-form-button(uk-toggle="target: #provider-form" type="button") Ya tienes usuario? Inicia sesion
+          .uk-margin
+            form(action="providers/signup" method="post" class="uk-form-stacked")
+              .uk-margin
+                label(class="uk-form-label uk-text-center" for="email-input") Correo electrónico:
+                .uk-form-controls
+                  input(class="uk-input uk-form-width-medium uk-align-center" id="email-input" type="email" placeholder="Introduce un correo electrónico" name="email")
+              .uk-margin
+                label(class="uk-form-label uk-text-center" for="password-input") Contraseña:
+                .uk-form-controls
+                  input(class="uk-input uk-form-width-medium uk-align-center" id="password-input" type="password" placeholder="Introduce una contraseña" name="password")
+              .uk-margin
+                label(class="uk-form-label uk-text-center" for="confirm-password-input") Confirm password:
+                .uk-form-controls
+                  input(class="uk-input uk-form-width-medium uk-align-center" id="confirm-password-input" type="password" placeholder="Confirma tu contraseña" name="confirm-password")
+              .uk-margin
+                button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Registrarme

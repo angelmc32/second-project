@@ -93,4 +93,10 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   border-radius: 10px; }
 
+.uk-button-default.uk-border-pill.provider-form-button {
+  border-color: #E84545; }
+
+.profile-form-container {
+  background: #EDF2F4; }
+
 /*# sourceMappingURL=style.css.map */

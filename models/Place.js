@@ -3,15 +3,13 @@ const { Schema, model } = mongoose;
 
 const placeSchema = new Schema(
   {
-    
     user: {
       type: Schema.Types.ObjectId,
       ref: "User"
     },
-    name_location: {
+    location_name: {
       type: String,
-      required: true,
-      unique: true
+      required: true
     },
     category: {
       type: String,
@@ -23,13 +21,8 @@ const placeSchema = new Schema(
       type: String,
       required: true
     },    
-    phone: {
+    phone_number: {
       type: Number,
-      required: true
-    
-    },
-    schedule: {
-      type: String,
       required: true
     },
     coords: {
