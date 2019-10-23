@@ -28,8 +28,6 @@ router.post('/consultations/new', isAuth, uploader.single('image'), (req, res, n
   const { chief_complaint, symptoms, pain_level } = req.body;
   const image_url = req.file.secure_url;
 
-  console.log(image_url);
-
   const newConsultation = new Consultation({ patient_id: user._id, image_url, chief_complaint, symptoms, pain_level });
 
   newConsultation.save()

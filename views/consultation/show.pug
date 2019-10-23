@@ -6,11 +6,12 @@ block content
 
     .height-container-column
       img(src=`${consultation.image_url}`, alt="")
-      p #{consultation.chief_complaint}
+      p Motivo de consulta: #{consultation.chief_complaint}
+      p Nivel de dolor: #{consultation.pain_level}
       if user.license !== undefined
-        form(action="/comment/new" method="post" class="uk-form-stacked")
+        form(action="/comments/new" method="post" class="uk-form-stacked")
           .uk-margin
             .uk-form-controls
-              input#form-stacked-text.uk-input.uk-form-width-large(type='text', placeholder='Que le recomiendas al paciente...')
+              input#form-stacked-text.uk-input.uk-form-width-large(type='text', placeholder='Que le recomiendas al paciente...' name="comment")
           .uk-margin
             button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Agregar comentario

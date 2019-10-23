@@ -19,4 +19,4 @@ const commentSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = model('Comments', commentSchema);
+module.exports = model('Comment', commentSchema);
