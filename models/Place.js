@@ -29,9 +29,10 @@ const placeSchema = new Schema(
       type: [Number],
       required: true
     },
-    website: {
-    type: String
-    },
+    web_site: {
+    type: String,
+    required: true
+      },
     images: {
       type: [String],
       minlength: 1
