@@ -99,4 +99,8 @@ h1, h2, h3, h4, h5, h6 {
 .profile-form-container {
   background: #EDF2F4; }
 
+.uk-button.facebook-button.uk-border-pill {
+  background: #3b5998;
+  color: #FFFFFF; }
+
 /*# sourceMappingURL=style.css.map */

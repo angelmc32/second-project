@@ -5,35 +5,39 @@ block content
   main
 
     .height-container-column
-
-      .profile-form-container
-
+      
         h2 Actualiza tu perfil
-        .uk-margin
-          form(action="/profile/edit" method="post" class="uk-form-stacked")
-            .uk-margin
-              label(class="uk-form-label uk-text-center" for="first-name-input") Nombre:
-              .uk-form-controls
-                input(class="uk-input uk-form-width-medium uk-align-center" id="first-name-input" type="text" placeholder="Introduce tu nombre" name="first_name")
-            .uk-margin
-              label(class="uk-form-label uk-text-center" for="last-name-input") Apellido:
-              .uk-form-controls
-                input(class="uk-input uk-form-width-medium uk-align-center" id="last-name-input" type="text" placeholder="Introduce tu apellido" name="last_name")
-            .uk-margin
-              label(class="uk-form-label uk-text-center" for="dob-input") Fecha de nacimiento:
-              .uk-form-controls
-                input(class="uk-input uk-form-width-medium uk-align-center" id="dob-input" type="date" name="date_of_birth")
-            .uk-margin
-              label(class="uk-form-label uk-text-center" for="last-name-input") Cedula Profesional:
-              .uk-form-controls
-                input(class="uk-input uk-form-width-medium uk-align-center" id="last-name-input" type="text" placeholder="Introduce tu cedula profesional" name="license")
-            .uk-margin
-              label(class="uk-form-label uk-text-center" for="email-input") Correo electrónico:
-              .uk-form-controls
-                input(class="uk-input uk-form-width-medium uk-align-center" id="email-input" type="email" placeholder="Introduce un correo electrónico" name="email")
-            .uk-margin
-              label(class="uk-form-label uk-text-center" for="password-input") Contraseña:
-              .uk-form-controls
-                input(class="uk-input uk-form-width-medium uk-align-center" id="password-input" type="password" placeholder="Introduce una contraseña" name="password")
-            .uk-margin
-              button(class="uk-button uk-button-secondary" type="submit") Actualizar perfil
+        .uk-margin.uk-width-2-3
+          form(action="/profile/edit" method="post" class="uk-form-stacked uk-width-1-1 uk-flex uk-flex-column")
+            .uk-width-1-1.uk-flex
+              .uk-width-1-2
+                .uk-margin
+                  label(class="uk-form-label uk-text-center" for="first-name-input") Nombre:
+                  .uk-form-controls
+                    input(class="uk-input uk-form-width-medium uk-align-center" id="first-name-input" type="text" placeholder="Introduce tu nombre" name="first_name" value=`${user.first_name ? user.first_name : ''}`)
+                .uk-margin
+                  label(class="uk-form-label uk-text-center" for="last-name-input") Apellido:
+                  .uk-form-controls
+                    input(class="uk-input uk-form-width-medium uk-align-center" id="last-name-input" type="text" placeholder="Introduce tu apellido" name="last_name" value=`${user.last_name ? user.last_name : ''}`)
+                .uk-margin
+                  label(class="uk-form-label uk-text-center" for="dob-input") Fecha de nacimiento:
+                  .uk-form-controls
+                    input(class="uk-input uk-form-width-medium uk-align-center" id="dob-input" type="date" name="date_of_birth" value=`${user.date_of_birth ? user.date_of_birth : ''}`)
+                .uk-margin
+                  label(class="uk-form-label uk-text-center" for="license") Cedula Profesional:
+                  .uk-form-controls
+                    input(class="uk-input uk-form-width-medium uk-align-center" id="license" type="text" placeholder="Introduce tu cedula profesional" name="license" value=`${user.license ? user.license : ''}`)
+              .uk-width-1-2
+                .uk-margin
+                  label(class="uk-form-label uk-text-center" for="email-input") Correo electrónico:
+                  .uk-form-controls
+                    input(class="uk-input uk-form-width-medium uk-align-center" id="email-input" type="email" placeholder="Introduce un correo electrónico" name="email" value=`${user.email}`)
+                .uk-margin.uk-text-center
+                  p Para confirmar cambios, introduce tu contraseña y presiona el boton para solicitar los cambios
+                  label(class="uk-form-label uk-text-center" for="password-input") Contraseña:
+                  .uk-form-controls
+                    input(class="uk-input uk-form-width-medium uk-align-center" id="password-input" type="password" placeholder="Introduce tu contraseña" name="password")
+                .uk-margin.uk-flex.uk-flex-center.uk-width-1-1
+                  if errorMessage
+                    p.uk-text-danger #{errorMessage}
+                  button.uk-button.uk-button-primary.uk-border-pill(type="submit") Actualizar perfil

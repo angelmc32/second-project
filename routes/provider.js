@@ -5,7 +5,6 @@ const Consultation = require('../models/Consultation');
 
 router.get('/providers/home', /*isAuth,*/ (req, res, next) => {
   const { user } = req;
-  console.log(req);
 
   Consultation.find()
   .then( consultations => {

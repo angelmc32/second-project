@@ -71,3 +71,7 @@ exports.providerSignup = (req, res, next) => {
   })
   .catch( errorMessage => res.render('auth/provider', { title: 'Registro | Me duele', errorMessage }));
 }
+
+exports.facebookLogin = (req, res, next) => {
+  passport.authenticate('facebook');
+}

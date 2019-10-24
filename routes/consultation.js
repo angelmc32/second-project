@@ -26,10 +26,10 @@ router.get('/consultations/new', isAuth, (req, res, next) => {
 router.post('/consultations/new', isAuth, uploader.single('image'), (req, res, next) => {
 
   const { user } = req;
-  const { chief_complaint, symptoms, pain_level } = req.body;
+  const { chief_complaint, symptoms, pain_level, description } = req.body;
   const image_url = req.file.secure_url;
 
-  const newConsultation = new Consultation({ patient_id: user._id, image_url, chief_complaint, symptoms, pain_level });
+  const newConsultation = new Consultation({ patient_id: user._id, image_url, chief_complaint, symptoms, pain_level, description });
 
   newConsultation.save()
   .then( consultation => {
@@ -90,10 +90,23 @@ router.post('/consultations/:consultationID/comment', (req, res, next) => {
     const newComment = new Comment({ consultation_id: consultationID, patient_id: user._id, creator_role: 'Paciente', content });
     newComment.save()
     .then( comment => {
-      res.redirect(`/consultations/${consultationID}`);
+      Consultation.findByIdAndUpdate(consultationID, {
+        $push: { comments: comment }
+      })
+      .then( consultation => {
+        console.log('created new comment');
+        res.redirect(`/consultations/${consultationID}`);
+      })
+      .catch( errorMessage => {
+        console.log(errorMessage)
+        res.redirect(`/consultations/${consultationID}`)
+      });
     })
-    .catch( errorMessage => res.redirect(`/consultations/${consultationID}`));
+    .catch( errorMessage => {
+      console.log(errorMessage)
+      res.redirect(`/consultations/${consultationID}`)
+    });
   }
-})
+});
 
 module.exports = router;

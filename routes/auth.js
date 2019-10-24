@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authControllers = require('../controllers/authControllers');
 const { isAuth, restrictAuth } = require('../helpers/authMiddleware');
+const passport = require('../helpers/passport');
 
 
 router.get('/login', restrictAuth, (req, res, next) => {
@@ -23,6 +24,13 @@ router.get('/providers', restrictAuth, (req, res, next) => {
 router.post('/providers/login', restrictAuth, authControllers.providerLogin);
 
 router.post('/providers/signup', restrictAuth, authControllers.providerSignup);
+
+router.get('/facebook', passport.authenticate('facebook'));
+
+router.get('/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/profile',
+  failureRedirect: '/login'
+}));
 
 router.get('/logout', isAuth, (req, res, next) => {
   req.logout();

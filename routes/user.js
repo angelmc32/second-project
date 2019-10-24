@@ -28,6 +28,32 @@ router.get('/profile', isAuth, (req, res, next) => {
   }
 });
 
+router.post('/profile/edit', isAuth, (req, res, next) => {
+  const { user } = req;
+  
+  if( user.license !== undefined ) {
+    const { first_name, last_name, date_of_birth, license, email, password } = req.body;
+
+    Provider.findByIdAndUpdate(user.id, {
+      $set: {first_name, last_name, date_of_birth, license, email}
+    })
+    .then( provider => {
+      res.render('provider/profile', { title: 'Mi Perfil | Atencion a lesiones menores', user: provider })
+    })
+    .catch( errorMessage => res.render('provider/profile', { title: 'Mi Perfil | Atencion a lesiones menores', provider, errorMessage }));
+  } else {
+    const { first_name, last_name, date_of_birth, email, password } = req.body;
+
+    User.findByIdAndUpdate(user.id, {
+      $set: {first_name, last_name, date_of_birth, email}
+    })
+    .then( user => {
+      res.render('user/profile', { title: 'Mi Perfil | Atencion a lesiones menores', user })
+    })
+    .catch( errorMessage => res.render('user/profile', { title: 'Mi Perfil | Atencion a lesiones menores', user, errorMessage }));
+  }
+})
+
 router.get('/profile/preferences', (req, res, next) => {
   
   const { user } = req;

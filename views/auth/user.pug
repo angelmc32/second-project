@@ -22,6 +22,11 @@ block content
                   input(class="uk-input uk-form-width-medium uk-align-center" id="password-input" type="password" placeholder="Introduce una contraseña" name="password")
               .uk-margin
                 button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Iniciar sesión
+          .uk-margin
+            form(action="/facebook")
+              button.uk-button.facebook-button.uk-border-pill.uk-align-center(type="submit")
+                span(uk-icon='facebook')
+                |   Inicia Sesion con facebook 
         .form-container#provider-form(hidden)
           .uk-margin
             h2 Registro como Paciente
@@ -42,3 +47,9 @@ block content
                   input(class="uk-input uk-form-width-medium uk-align-center" id="confirm-password-input" type="password" placeholder="Confirma tu contraseña" name="confirm-password")
               .uk-margin
                 button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Registrarme
+          .uk-margin
+            form(action="/facebook")
+              button.uk-button.facebook-button.uk-border-pill.uk-align-center(type="submit")
+                span(uk-icon='facebook')
+                |   Registro con facebook 
+              
