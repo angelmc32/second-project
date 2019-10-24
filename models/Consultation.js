@@ -33,8 +33,16 @@ const consultationSchema = new Schema(
     },
     start_date: {
       type: Date
-    }
-  }
+    },
+    diagnosis: {
+      type: String
+    },
+    comments: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Comment'
+    }]
+  },
+  { timestamps: true }
 );
 
 module.exports = model('Consultation', consultationSchema);

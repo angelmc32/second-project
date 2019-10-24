@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+
+  main
+
+    .height-container-column
+      .uk-width-1-1.uk-flex
+        .uk-width-1-2.uk-flex.uk-flex-column.uk-text-center.uk-flex-middle
+          div(class="uk-width-2-3")
+            img.uk-height-max-medium(src=`${consultation.image_url}`, alt="")
+          a(href=`${consultation.image_url}`) Ampliar imagen
+          p Motivo de consulta: #{consultation.chief_complaint}
+          p Nivel de dolor: #{consultation.pain_level}
+        .uk-width-1-2.uk-flex.uk-flex-column
+          p Paciente #{consultation.patient_id} comenta: #{consultation.description}
+          each comment in consultation.comments
+            p #{comment.creator_role} #{comment.provider_id ? comment.provider_id : comment.patient_id } comenta: #{comment.content}
+          if user.license !== undefined
+            form(action=`/consultations/${consultation._id}/comment` method="post" class="uk-form-stacked")
+              .uk-margin
+                .uk-form-controls
+                  input#form-stacked-text.uk-input.uk-form-width-large(type='text', placeholder='Que le recomiendas al paciente...' name="content")
+              .uk-margin
+                button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Agregar comentario
+          else
+            form(action=`/consultations/${consultation._id}/comment` method="post" class="uk-form-stacked")
+              .uk-margin
+                .uk-form-controls
+                  input#form-stacked-text.uk-input.uk-form-width-large(type='text', placeholder='Agrega una pregunta o comentario' name="content")
+              .uk-margin
+                button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Agregar comentario

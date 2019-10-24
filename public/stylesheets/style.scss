@@ -58,6 +58,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: auto;
   height: 87.5vh;
 }
 
@@ -117,4 +118,17 @@ h1, h2, h3, h4, h5, h6 {
   background: $secondary;
   text-align: center;
   border-radius: 10px;
+}
+
+.uk-button-default.uk-border-pill.provider-form-button {
+  border-color: $secondary;
+}
+
+.profile-form-container {
+  background: $background;
+}
+
+.uk-button.facebook-button.uk-border-pill {
+  background: #3b5998;
+  color: #FFFFFF
 }

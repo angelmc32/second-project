@@ -10,4 +10,12 @@ router.get('/', (req, res, next) => {
 
 });
 
+router.get('/emergency', (req, res, next) => {
+
+  const { user } = req;
+
+  res.render('emergency/map', { title: 'Emergencia | Atencion a lesiones menores', user});
+  
+})
+
 module.exports = router;

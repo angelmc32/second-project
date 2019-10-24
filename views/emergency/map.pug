@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+
+  main
+    .uk-text-center
+      div
+        h1(uk-text-center='')
+          | Lugares de Atenci&oacute;n m&aacute;s cercanos en caso de 
+          span.uk-text-bold Emergencia
+    .uk-container
+      iframe(src='https://www.google.com/maps/d/u/0/embed?mid=1P_f-l6xO2kTZ9kLIlA6gAJBbdQ07XD6k' width='100%' height='600')
+    script(src='map.js')
+    script(src='js/uikit.min.js')
+    script(src='js/uikit-icons.min.js')

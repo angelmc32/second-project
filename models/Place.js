@@ -3,15 +3,13 @@ const { Schema, model } = mongoose;
 
 const placeSchema = new Schema(
   {
-    
     user: {
       type: Schema.Types.ObjectId,
       ref: "User"
     },
-    name_location: {
+    location_name: {
       type: String,
-      required: true,
-      unique: true
+      required: true
     },
     category: {
       type: String,
@@ -19,17 +17,12 @@ const placeSchema = new Schema(
       enum: ["Hospital", "Clínica", "Centro de Salud", "Consultorio", "Otro"],
       default: "Hospital"
     },
-    Direccion: {
+    address: {
       type: String,
       required: true
     },    
-    Telefono: {
+    phone_number: {
       type: Number,
-      required: true
-    
-    },
-    Horario: {
-      type: String,
       required: true
     },
     coords: {

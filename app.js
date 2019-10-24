@@ -70,11 +70,15 @@ app.locals.title = 'Me Duele | Atencion a lesiones menores';
 const index = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+const providerRoutes = require('./routes/provider');
 const consultationRoutes = require('./routes/consultation');
+const placeRoutes = require("./routes/place");
 app.use('/', index);
 app.use('/', authRoutes);
 app.use('/', userRoutes);
+app.use('/', providerRoutes);
 app.use('/', consultationRoutes);
+app.use('/', placeRoutes);
 
 
 module.exports = app;
