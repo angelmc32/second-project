@@ -9,7 +9,17 @@ const commentSchema = new Schema(
     },
     provider_id: {
       type: Schema.Types.ObjectId,
-      ref: 'Provider'
+      ref: 'Provider',
+      default: null
+    },
+    patient_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      default: null
+    },
+    creator_role: {
+      type: String,
+      enum: ['Doctor','Paciente']
     },
     content: {
       type: String,

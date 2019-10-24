@@ -36,7 +36,11 @@ const consultationSchema = new Schema(
     },
     diagnosis: {
       type: String
-    }
+    },
+    comments: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Comment'
+    }]
   },
   { timestamps: true }
 );
