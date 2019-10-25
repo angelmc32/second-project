@@ -6,14 +6,15 @@ block content
 
     .height-container-column
       .uk-width-1-1.uk-flex
-        .uk-width-1-2.uk-flex.uk-flex-column.uk-text-center.uk-flex-middle
+        .uk-width-1-2.uk-flex.uk-flex-column.uk-flex-center.uk-text-center.uk-flex-middle#images
           div(class="uk-width-2-3")
             img.uk-height-max-medium(src=`${consultation.image_url}`, alt="")
           a(href=`${consultation.image_url}`) Ampliar imagen
           p Motivo de consulta: #{consultation.chief_complaint}
           p Nivel de dolor: #{consultation.pain_level}
-        .uk-width-1-2.uk-flex.uk-flex-column.uk-flex-middle
-          #messages-container.uk-flex.uk-flex-column.uk-width-5-6
+        .uk-width-1-2.uk-flex.uk-flex-column.uk-flex-middle#messages-container
+          .uk-flex.uk-flex-column.uk-width-5-6.uk-text-center#new-messages
+            h2 Mensajes
             .description-container
               if JSON.stringify(consultation.patient_id) === JSON.stringify(user.id)
                 .uk-text-right

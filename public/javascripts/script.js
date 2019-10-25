@@ -1,20 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const socket = io();
+  const sockets = io();
 
   let messageButton = document.getElementById('messager');
   let commentContent = document.getElementById('content');
-  let content = commentContent.value;
   let newComment = {};
-  let messagesContainer = document.getElementById('messages-container');
+  let messagesContainer = document.getElementById('new-messages');
 
-  console.log(messageButton.innerText)
+  document.getElementById('messager').addEventListener("click", function(e) {
     
-  document.getElementById('messager').addEventListener("click", e => {
-
+    console.log('Event triggered')
+    
     if( !content ) return;
 
     if ( e.target.dataset.role === 'Doctor' ){
+      let content = commentContent.value;
       newComment = {
         consultation_id: e.target.dataset.consultation,
         provider_id: e.target.dataset.user,
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         content: content
       }
     } else {
+      let content = commentContent.value;
       newComment = {
         consultation_id: e.target.dataset.consultation,
         patient_id: e.target.dataset.user,
@@ -30,12 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    socket.emit('newComment', newComment)
+    sockets.emit('newComment', newComment);
+
+    return false;
+    
   });
     
-  socket.on('newComment', function(comment) {
+  socket.on('addComment', function(comment) {
+    console.log('adding comment to html was called');
     let pElement = document.createElement('p')
-    pElement.innerHTML = `${comment.creator_role} ${comment.provider_id ? comment.provider_id : comment.patient_id } comenta: ${comment.content}`;
+    pElement.innerHTML = `${comment.creator_role} comenta: ${comment.content}`;
     messagesContainer.appendChild(pElement)
   });
-}, true);
+  
+}, false);

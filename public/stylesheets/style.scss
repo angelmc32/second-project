@@ -133,6 +133,11 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFFFF
 }
 
+.uk-width-1-2.uk-flex.uk-flex-column.uk-flex-middle#messages-container {
+  height: 87.5vh;
+  overflow-y: scroll;
+}
+
 .description-container {
   border: $muted solid 1px;
 }

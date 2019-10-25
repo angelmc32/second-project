@@ -46,14 +46,20 @@ server.on('error', error => {
 
 io.on('connection', function(socket) {
   console.log('A user connected');
-  /*
-  socket.on('comment', function() {
-    consultationController
-    .findComment(comment)
-    .then( comment => io.emit('newComment', comment) )
-    .catch( error => io.emit('Messaging error', error.message) );
+  
+  socket.on('newComment', function(newComment) {
+    
+    console.log('New comment added:', newComment);
+
+    io.sockets.emit('addComment', newComment);
+    /*
+    io.sockets.emit('show_notification', {
+      title: data.title,
+      message: data.message,
+      icon: data.icon
+    });*/
   });
-  */
+  
   socket.on('Disconnect', function() {
     console.log('User disconnected');
   });

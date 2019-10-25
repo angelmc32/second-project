@@ -50,7 +50,6 @@ router.get('/consultations/:consultationID', isAuth, (req, res, next) => {
   Consultation.findById(consultationID)
   .populate('comments')
   .then( consultation => {
-    console.log(consultation.comments);
     res.render('consultation/show', { title: 'Ver consulta | Atencion a lesiones menores', user, consultation })
   })
   .catch( errorMessage => res.render('consultation/index', { title: 'Consultas | Atencion a lesiones menores', user, errorMessage }))
@@ -63,8 +62,6 @@ router.post('/consultations/:consultationID/comment', (req, res, next) => {
   const { content } = req.body;
   const consultationID = req.params.consultationID;
 
-  console.log(content);
-
   if( user.license !== undefined ) {
     const newComment = new Comment({ consultation_id: consultationID, provider_id: user._id, creator_role: 'Doctor', content });
     newComment.save()
@@ -73,8 +70,7 @@ router.post('/consultations/:consultationID/comment', (req, res, next) => {
         $push: { comments: comment }
       })
       .then( consultation => {
-        console.log('created new comment');
-        res.redirect(`/consultations/${consultationID}`);
+        //res.redirect(`/consultations/${consultationID}`);
       })
       .catch( errorMessage => {
         console.log(errorMessage)
@@ -94,8 +90,7 @@ router.post('/consultations/:consultationID/comment', (req, res, next) => {
         $push: { comments: comment }
       })
       .then( consultation => {
-        console.log('created new comment');
-        res.redirect(`/consultations/${consultationID}`);
+        //res.redirect(`/consultations/${consultationID}`);
       })
       .catch( errorMessage => {
         console.log(errorMessage)
@@ -103,7 +98,6 @@ router.post('/consultations/:consultationID/comment', (req, res, next) => {
       });
     })
     .catch( errorMessage => {
-      console.log(errorMessage)
       res.redirect(`/consultations/${consultationID}`)
     });
   }
