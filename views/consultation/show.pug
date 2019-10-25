@@ -12,21 +12,36 @@ block content
           a(href=`${consultation.image_url}`) Ampliar imagen
           p Motivo de consulta: #{consultation.chief_complaint}
           p Nivel de dolor: #{consultation.pain_level}
-        .uk-width-1-2.uk-flex.uk-flex-column
-          p Paciente #{consultation.patient_id} comenta: #{consultation.description}
-          each comment in consultation.comments
-            p #{comment.creator_role} #{comment.provider_id ? comment.provider_id : comment.patient_id } comenta: #{comment.content}
+        .uk-width-1-2.uk-flex.uk-flex-column.uk-flex-middle
+          #messages-container.uk-flex.uk-flex-column.uk-width-5-6
+            .description-container
+              if JSON.stringify(consultation.patient_id) === JSON.stringify(user.id)
+                .uk-text-right
+                  p Tu descripcion: #{consultation.description}
+              else
+                .uk-text-left
+                  p Paciente #{consultation.patient_id} comenta: #{consultation.description}
+            each comment in consultation.comments
+              .comment-container
+                if JSON.stringify(comment.patient_id) === JSON.stringify(user.id) || JSON.stringify(comment.provider_id) === JSON.stringify(user.id)
+                  .uk-text-right
+                    p #{comment.creator_role} comenta: #{comment.content}
+                else
+                  .uk-text-left                 
+                    p #{comment.creator_role} comenta: #{comment.content}
+                if comment.creator_role === 'Doctor' && user.license === undefined
+                  a.uk-text-center(href=`/provider/${comment.provider_id}`) Solicitar consulta
           if user.license !== undefined
             form(action=`/consultations/${consultation._id}/comment` method="post" class="uk-form-stacked")
               .uk-margin
                 .uk-form-controls
-                  input#form-stacked-text.uk-input.uk-form-width-large(type='text', placeholder='Que le recomiendas al paciente...' name="content")
+                  input#content.uk-input.uk-form-width-large(type='text', placeholder='Que le recomiendas al paciente...' name="content")
               .uk-margin
-                button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Agregar comentario
+                button.uk-button.uk-button-primary.uk-border-pill.uk-align-center#messager(type="submit" data-consultation=consultation._id data-user=user._id data-role='Doctor') Agregar comentario
           else
             form(action=`/consultations/${consultation._id}/comment` method="post" class="uk-form-stacked")
               .uk-margin
                 .uk-form-controls
-                  input#form-stacked-text.uk-input.uk-form-width-large(type='text', placeholder='Agrega una pregunta o comentario' name="content")
+                  input#content.uk-input.uk-form-width-large(type='text', placeholder='Agrega una pregunta o comentario' name="content")
               .uk-margin
-                button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Agregar comentario
+                button.uk-button.uk-button-primary.uk-border-pill.uk-align-center#messager(type="submit" data-consultation=consultation._id data-user=user._id data-role='Paciente') Agregar comentario

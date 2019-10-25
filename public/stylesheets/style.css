@@ -103,4 +103,12 @@ h1, h2, h3, h4, h5, h6 {
   background: #3b5998;
   color: #FFFFFF; }
 
+.description-container {
+  border: #8D99AE solid 1px; }
+
+.comment-container {
+  border-bottom: #8D99AE solid 1px;
+  border-left: #8D99AE solid 1px;
+  border-right: #8D99AE solid 1px; }
+
 /*# sourceMappingURL=style.css.map */

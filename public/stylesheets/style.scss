@@ -132,3 +132,13 @@ h1, h2, h3, h4, h5, h6 {
   background: #3b5998;
   color: #FFFFFF
 }
+
+.description-container {
+  border: $muted solid 1px;
+}
+
+.comment-container {
+  border-bottom: $muted solid 1px;
+  border-left: $muted solid 1px;
+  border-right: $muted solid 1px;
+}

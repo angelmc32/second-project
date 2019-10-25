@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 const http = require('http');
-
 let app = require('../app');
+//
+const consultationController = require('../controllers/consultationController');
 
 // catch 404 and render a not-found.hbs template
 app.use((req, res, next) => {
@@ -22,6 +23,8 @@ app.use((err, req, res, next) => {
 });
 
 let server = http.createServer(app);
+// Require socket.io package to add listener and emiter of events defined in the app
+const io = require('socket.io')(server);
 
 server.on('error', error => {
   if (error.syscall !== 'listen') { throw error }
@@ -39,6 +42,22 @@ server.on('error', error => {
     default:
       throw error;
   }
+});
+
+io.on('connection', function(socket) {
+  console.log('A user connected');
+  /*
+  socket.on('comment', function() {
+    consultationController
+    .findComment(comment)
+    .then( comment => io.emit('newComment', comment) )
+    .catch( error => io.emit('Messaging error', error.message) );
+  });
+  */
+  socket.on('Disconnect', function() {
+    console.log('User disconnected');
+  });
+
 });
 
 server.listen(process.env.PORT, () => {
