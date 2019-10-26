@@ -2,58 +2,64 @@ extends ../layout
 
 block content
   //- mixin newPlaceForm(create, auction = {}, errorMessage)
+  //each errors 
+  //.uk-alert-danger(uk-alert='')
+  //a.uk-alert-close(uk-close='')
+  //p
+    text
 
   main
-    .uk-text-center.uk-margin-medium-top
+    .uk-text-center.uk-margin-small
       h2 Registro
     .uk-text-center(uk-grid='')
-      .uk-width-1-2.uk-margin
-        form(action="/place" method="post" class="uk-form-stacked")
-         //form(action=create ? "/place/new" : `/place/update/${place._id}` method="post" enctype="multipart/form-data")
+      .uk-width-1-3.uk-margin
+        form(action="/places/new" method="post" class="uk-form-stacked")
+         //-form(action=create ? "/places/new" : `/places/update/${place._id}` method="post" enctype="multipart/form-data")
         .uk-margin 
-          label(class="uk-form-label uk-text-center" for="name_location") Centro Médico:
-          .uk-form-controls
-          input(class="uk-input uk-form-width-medium uk-align-center" id="name_location" type="text" placeholder="Nombre del Lugar de Atención" name="name_location")
+          label(class="uk-form-label uk-text-center" for="location_name_i") Nombre del Lugar:
+        .uk-form-controls
+          input(class="uk-input uk-form-width-medium uk-align-center" id="location_name_i" type="text" placeholder="Nombre del Lugar de Atención" name="location_name" autofocus)
         .uk-margin
-          label(class="uk-form-label uk-text-center" for="category") Categoría:
-          .uk-form-controls
-          .uk-form-select(data-uk-form-select='')
-            span
-            select(class="uk-input uk-form-width-medium uk-align-center" id="category" type="string" placeholder="Selecciona Categoria" name="string")
-              option(value='') Centro de Salud
-              option(value='') Clínica
-              option(value='') Consultorio
-              option(value='') Hospital
-              option(value='') Otro
-          .uk-margin
-            label(class="uk-form-label uk-text-center" for="address") Dirección:
-            .uk-form-controls
-              input(class="uk-input uk-form-width-medium uk-align-center" id="address" type="address" placeholder="Dirección del lugar" name="address")
-          .uk-margin
-            label(class="uk-form-label uk-text-center" for="phone") Telefono:
-            .uk-form-controls
-              input(class="uk-input uk-form-width-medium uk-align-center" id="phone" type="phone" placeholder="Inserta Telefono de atención" name="phone")
-      .uk-width-1-2.uk-margin
-        .uk-width-1-2.uk-margin
-            form(action="/place" class="uk-form-stacked" enctype="multipart/form-data")  
-              .uk-margin
-                label(class="uk-form-label uk-text-center" for="schedule") Horario de Atención:
-              .uk-form-controls
-                input(class="uk-input uk-form-width-medium uk-align-center" id="schedule" type="string" placeholder="Horario de atención" name="schedule")
-              .uk-margin
-                label(class="uk-form-label uk-text-center" for="coords") Coordenadas:
-              .uk-form-controls
-                input(class="uk-input uk-form-width-medium uk-align-center" id="coords" type="coords" placeholder="Ejemplo: 19.2952857,-99.1802295" name="coords")
-              .uk-margin
-                label(class="uk-form-label uk-text-center" for="web_site") Página Web:
-              .uk-form-controls
-                input(class="uk-input uk-form-width-medium uk-align-center" id="web_site" type="web" placeholder="Introduce página Web" name="web" requeried)
-              .uk-margin
-                label(class="uk-form-label uk-text-center" for="images") Imagen(s) del Lugar:
-              .uk-form-controls
-                input(class="js-upload" id="images" type="file" name="image")
-      button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Crear Lugar
-      //button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit")=create ? "create place" : "Update place"
-      // FALTA AGREGAR MIXINS
+          label(class="uk-form-label uk-text-center" for="category_i") Categoría:
+        .uk-form-controls.uk-form-select(data-uk-form-select='')
+          select(class="uk-select uk-form-width-medium uk-align-center" id="category_i" type="string" placeholder="Selecciona Categoria" name="category")
+            option(value='') Centro de Salud
+            option(value='') Clínica
+            option(value='') Consultorio
+            option(value='') Hospital
+            option(value='') Otro     
+        .uk-margin
+          label(class="uk-form-label uk-text-center" for="address_i") Dirección:
+        .uk-form-controls
+              input(class="uk-input uk-form-width-medium uk-align-center" id="address_i" type="address" placeholder="Dirección del lugar" name="address")
+        .uk-margin
+          label(class="uk-form-label uk-text-center" for="phone_i") Telefono:
+        .uk-form-controls
+            input(class="uk-input uk-form-width-medium uk-align-center" id="phone_i" type="phone" placeholder="Inserta Telefono de atención" name="phone_number")
+      .uk-width-1-3.uk-margin
+        .uk-margin
+          label(class="uk-form-label uk-text-center" for="schedule") Horario de Atención:
+        .uk-form-controls
+          input(class="uk-input uk-form-width-medium uk-align-center" id="schedule" type="string" placeholder="Horario de atención" name="schedule")
+        .uk-margin
+          label(class="uk-form-label uk-text-center" for="coords_i") Coordenadas:
+        .uk-form-controls
+          input(class="uk-input uk-form-width-medium uk-align-center" id="coords_i" type="coords" placeholder="Ejemplo: 19.2952857,-99.1802295" name="coords")
+        .uk-margin
+          label(class="uk-form-label uk-text-center" for="web_site_i") Página Web:
+        .uk-form-controls
+          input(class="uk-input uk-form-width-medium uk-align-center" id="web_site_i" type="web" placeholder="Introduce página Web" name="web_site" requeried)
+        .uk-margin
+          label(class="uk-form-label uk-text-center" for="images_i") Imagen(s) del Lugar:
+        .uk-form-controls
+          input(class="js-upload" id="images_i" type="file" name="images")
+      .uk-width-1-3.uk-margin
+        iframe(src='https://www.google.com/maps/d/u/0/embed?mid=1P_f-l6xO2kTZ9kLIlA6gAJBbdQ07XD6k' width='100%' height='100%')
+    .uk-text-center
       
-       
+  button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit") Agregar Lugar 
+
+
+    
+      //-button.uk-button.uk-button-primary.uk-border-pill.uk-align-center(type="submit")=create ? "create place" : "Update place"
+      //- FALTA AGREGAR MIXINS

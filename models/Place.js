@@ -14,7 +14,7 @@ const placeSchema = new Schema(
     category: {
       type: String,
       required: true,
-      enum: ["Hospital", "Clínica", "Centro de Salud", "Consultorio", "Otro"],
+      enum: ["Hospital", "Clinica", "Centro de Salud", "Consultorio", "Otro"],
       default: "Hospital"
     },
     address: {
