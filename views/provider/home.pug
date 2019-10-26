@@ -4,11 +4,18 @@ block content
 
   main
 
-    .uk-flex.uk-flex-center
+    .height-container-column
 
-      .uk-text-center(class='uk-child-width-1-4' uk-grid='' uk-height-match="target: .uk-card")
-        each consultation in consultations
-          a(href=`/consultations/${consultation._id}`)
-            .uk-card.uk-card-default.uk-card-body.uk-card-hover
-              img(src=`${consultation.image_url}`, alt="")
-              p #{consultation.chief_complaint}
+      .consultations-container
+
+        .uk-text-center
+          h2 Solicitudes de Consulta
+
+        .uk-flex.uk-flex-center
+
+          .uk-text-center(class='uk-child-width-1-4' uk-grid='' uk-height-match="target: .uk-card")
+            each consultation in consultations
+              a(href=`/consultations/${consultation._id}`)
+                .uk-card.uk-card-default.uk-card-body.uk-card-hover
+                  img(src=`${consultation.image_url}`, alt="")
+                  p #{consultation.chief_complaint}

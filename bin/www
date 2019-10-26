@@ -59,6 +59,10 @@ io.on('connection', function(socket) {
       icon: data.icon
     });*/
   });
+
+  socket.on('newConsultation', function(message) {
+    io.sockets.emit('addBadge', message);
+  })
   
   socket.on('Disconnect', function() {
     console.log('User disconnected');

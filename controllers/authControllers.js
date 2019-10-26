@@ -6,10 +6,10 @@ exports.login = (req, res, next) => {
   passport.authenticate('local-user', (error, user, info = {}) => {
     const { message: errorMessage } = info;
     if( errorMessage )
-      return res.render('auth/login', { title: 'Inicia Sesión | Me duele', errorMessage });
+      return res.render('auth/user', { title: 'Inicia Sesión | Me duele', errorMessage });
 
     req.login( user, error => {
-      res.redirect('/home');
+      res.redirect('/consultations');
     });
   })(req, res);
 };
@@ -19,19 +19,19 @@ exports.signup = (req, res, next) => {
 
   if( !password || !email ) {
     let errorMessage = 'Todos los campos son requeridos';
-    res.render('auth/signup', { title: 'Registro | Me duele', errorMessage });
+    res.render('auth/user', { title: 'Registro | Me duele', errorMessage });
   }
 
   if( password !== req.body['confirm-password'] ) {
     let errorMessage = 'Asegura que la contraseña sea la misma en ambos campos';
-    res.render('auth/signup', { title: 'Registro | Me duele', errorMessage });
+    res.render('auth/user', { title: 'Registro | Me duele', errorMessage });
   }
 
   User.register({ email }, password)
   .then( user => {
     req.login(user, errorMessage => {
-      if( errorMessage ) return res.render('auth/signup', { title: 'Registro | Me duele', errorMessage });
-      res.redirect('/home');
+      if( errorMessage ) return res.render('auth/user', { title: 'Registro | Me duele', errorMessage });
+      res.redirect('/consultations');
     })
   })
   .catch( errorMessage => res.render('auth/signup', { title: 'Registro | Me duele', errorMessage }));
@@ -66,7 +66,7 @@ exports.providerSignup = (req, res, next) => {
   .then( provider => {
     req.login(provider, errorMessage => {
       if( errorMessage ) return res.render('auth/provider', { title: 'Registro | Me duele', errorMessage });
-      res.redirect('/home');
+      res.redirect('/providers/home');
     })
   })
   .catch( errorMessage => res.render('auth/provider', { title: 'Registro | Me duele', errorMessage }));

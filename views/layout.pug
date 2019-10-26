@@ -22,7 +22,11 @@ html(lang="en")
         ul.uk-navbar-nav
           li
             if user
-              a(href='/home') Home
+              if user.license !== undefined
+                li
+                  a(href='/providers/home') Home
+              else
+                a(href='/consultations') Home
             else
               a(href='/') Home
           li
@@ -35,8 +39,6 @@ html(lang="en")
                   li
                     a(href='/consultations') Mis consultas
                   li
-                    a(href='/profile/preferences') Preferencias
-                  li
                     a(href='/logout') Cerrar sesión
           else
             li
@@ -45,11 +47,15 @@ html(lang="en")
             if user.license !== undefined
               li
                 a(href='/providers/home')
-                  button.uk-button.uk-button-primary.uk-border-pill Atender consulta
+                  button.uk-button.uk-button-primary.uk-border-pill#doctor-notification
+                    | Atender consulta
+                    //span.uk-badge 100
             else
               li
                 a(href='/consultations/new')
-                  button.uk-button.uk-button-primary.uk-border-pill Quiero consulta
+                  button.uk-button.uk-button-primary.uk-border-pill#patient-notification 
+                    | Quiero consulta
+                    //span.uk-badge 100
           else
             li
               a(href='/login')

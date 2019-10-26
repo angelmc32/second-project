@@ -115,4 +115,11 @@ h1, h2, h3, h4, h5, h6 {
   border-left: #8D99AE solid 1px;
   border-right: #8D99AE solid 1px; }
 
+.consultations-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  height: 100%; }
+
 /*# sourceMappingURL=style.css.map */

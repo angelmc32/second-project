@@ -70,7 +70,7 @@ router.post('/consultations/:consultationID/comment', (req, res, next) => {
         $push: { comments: comment }
       })
       .then( consultation => {
-        //res.redirect(`/consultations/${consultationID}`);
+        res.redirect(`/consultations/${consultationID}`);
       })
       .catch( errorMessage => {
         console.log(errorMessage)
@@ -90,7 +90,7 @@ router.post('/consultations/:consultationID/comment', (req, res, next) => {
         $push: { comments: comment }
       })
       .then( consultation => {
-        //res.redirect(`/consultations/${consultationID}`);
+        res.redirect(`/consultations/${consultationID}`);
       })
       .catch( errorMessage => {
         console.log(errorMessage)
